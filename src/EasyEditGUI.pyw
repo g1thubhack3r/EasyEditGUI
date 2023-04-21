@@ -11,7 +11,7 @@ def opencallback(textobj):
         with open(filename) as readfile:
             content = readfile.read()
     except:
-        msgbox.showerror("Error", "File not found")
+        msgbox.showerror("Error", "Cannot open a file")
     else:
         textobj.delete(1.0, tk.END)
         textobj.insert(1.0, content)
@@ -21,7 +21,7 @@ def savecallback(buffer):
         with open(filename, mode='w') as savefile:
             savefile.write(buffer)
     except:
-        msgbox.showerror("Error", "File name invalid")
+        msgbox.showerror("Error", "Cannot save to a file")
 menubar = tk.Menu(root)
 filemenu = tk.Menu(menubar, tearoff=False)
 filemenu.add_command(label="Open", command=(lambda: opencallback(buffer)))
